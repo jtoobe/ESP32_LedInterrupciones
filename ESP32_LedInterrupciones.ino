@@ -10,6 +10,12 @@
     void setup() {                
       pinMode(led, OUTPUT);
       pinMode(boton, INPUT);
+        /*
+         * LOW para activar la interrupción cuando el pin está bajo;
+         * CHANGE para activar la interrupción cada vez que el pin cambia de valor;
+         * RISING para disparar cuando el pin va de bajo a alto;
+         * FALLING para cuando el pin pasa de alto a bajo.
+        */
       attachInterrupt(digitalPinToInterrupt(boton), controlar, CHANGE); 
       Serial.begin(115200);     
     }
