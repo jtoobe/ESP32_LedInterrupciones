@@ -1,5 +1,6 @@
 /*     
- Encender un led con interrupciones
+* Encender un led con interrupciones, mejor funcionamiento que los otros
+* que no usan interrupciones. Por que ?
 */
     
     int led  = 5;  // Pin donde está conectado el LED
