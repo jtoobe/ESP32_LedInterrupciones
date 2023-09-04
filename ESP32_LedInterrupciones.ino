@@ -3,13 +3,14 @@
 * que no usan interrupciones. Por que ?
 */
     
-    int led  = 5;  // Pin donde está conectado el LED
-    int boton = 18; // Pin donde está conectado el pulsador
+    int led  = 32;  // Pin donde está conectado el LED
+    int boton = 23; // Pin donde está conectado el pulsador
     boolean estado=true;
     
     void setup() {                
       pinMode(led, OUTPUT);
-      pinMode(boton, INPUT);
+      pinMode(boton, INPUT_PULLUP);
+       
         /*
          * LOW para activar la interrupción cuando el pin está bajo;
          * CHANGE para activar la interrupción cada vez que el pin cambia de valor;
@@ -25,8 +26,6 @@
        * para este script, pero podriamos
        * estar controlando un sensor por ejemplo
        */
-       delay(1000);
-       Serial.println(estado);
     }
 
     // Funcion que se ejecuta con la interrupcion
@@ -36,11 +35,13 @@
       {
         digitalWrite(led,LOW); // encendemos el LED
         estado=false;
+        Serial.println(estado);
       }
       else // Sino..
       {
         digitalWrite(led, HIGH); // apagamos el LED
         estado=true;
+        Serial.println(estado);
       }
       
     }
